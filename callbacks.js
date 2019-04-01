@@ -1,6 +1,7 @@
 //CALLBACKS
-//callback to update node properties
+
 //------------------------------------------------
+//callback to update node properties
 function updateNode(currentNode) {
     var childNum = currentNode.children.length; //number of children of the current node
     var useTab;
@@ -39,7 +40,7 @@ function updateNode(currentNode) {
     }
   
     //update x, y, radius in base of x, y, radius values of parent node 
-    if(currentNode.parent != null) { //the radix has already the correct values 
+    if(currentNode.parent != null) { //the root has already the correct values 
         currentNode.x = currentNode.parent.x + currentNode.x * currentNode.parent.radius; 
         currentNode.y = currentNode.parent.y + currentNode.y * currentNode.parent.radius;
         currentNode.radius = currentNode.radius * currentNode.parent.radius;
@@ -52,21 +53,22 @@ function updateNode(currentNode) {
     }
 }
 
-//callback for draw circle node
 //------------------------------------------------
+//callback for draw circle node
 function drawCircle(currentNode) {
     if(currentNode.hovered) {
         strokeWeight(2);
-        stroke('#0b00b2'); //dark blue
+        stroke(strokeColor); //dark blue
     } else {
         noStroke();
     }
     fill(colors[currentNode.level]);
-    circle(currentNode.x, currentNode.y, currentNode.radius); 
+    circle(currentNode.x, currentNode.y, currentNode.radius);
+    //writeName (63 raggio max e senza figli) 
 }
 
-//callback for update hover property to circle nodes
 //------------------------------------------------
+//callback for update hover property to circle nodes
 function updateHover(currentNode) {
     var childSelected = false; 
     if(checkHover(currentNode)){ //if mouse is hover the current node...
@@ -75,7 +77,8 @@ function updateHover(currentNode) {
         }
         if(!childSelected) { //if the mouse isn't hover its children...
             currentNode.hovered = true; //... the mouse is hover this current node 
-            findUpdateRadius(currentNode); //compute updated radius of circles 
+            findUpdateRadius(currentNode); //compute updated circle radius
+            nameNodeHovered = currentNode.name; //save name value of the node hovered in a global variable
         } else {
             currentNode.hovered = false; 
         }

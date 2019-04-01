@@ -11,24 +11,36 @@ var pack17circles = [];
 
 var storiesTree; // Tree of stories 
 
+//colors
+var strokeColor = '#0b00b2'; //dark blue
 var colors = [
                 '#ffffd4', //background
-                '#fed98e', //radix node (level 1)
+                '#fed98e', //root node (level 1)
                 '#fe9929', //nodes level 2
                 '#d95f0e', //nodes level 3
                 '#993404'  //nodes level 4
               ];
 
-var centerPosX, centerPosY; //central position of the entire drawing
-var centerRadius; //radius of the central circle
-var ratioRadius = 1; //ratio of the radius to zoom the circles 
-var moveX, moveY; //move x and y positions of the circle to move it in 'centerPosX' and 'centerPosY' respectively
-var moveXClicked, moveYClicked; //move x and y positions of the circle clicked by the mouse 
+//radius, x and y positions of the entire drawing 
+var centerPosX, centerPosY; 
+var centerRadius;  
+ 
+var moveX, moveY; //shift of x and y position of the circle hovered by the mouse
+var moveXClicked, moveYClicked; //shift of x and y position of the circle clicked by the mouse
+
 var isMouseClicked = false; //flag to check if the mouse is clicked 
-var finalRadius; //final value for radius that the current node will have when the "zoom" is finished
-var finalPosX, finalPosY; //final values for x and y position that the current node will have when the "zoom" is finished
-var deltaLerp = 1;  
+
+//final value for radius, x and y positions that the current node will have when the zoomed
+var finalRadius; 
+var finalPosX, finalPosY; 
+
+
+var ratioRadius = 1; //ratio of the radius to zoom the circles
+var deltaLerp = 1;
 var lerpValue = 0.05;
+
+var nameNodeHovered = ""; //contains the value name of the node hovered 
+
 
 //------------------------------------------------
 function preload() {
@@ -46,21 +58,22 @@ function preload() {
 function setup() {
     pixelDensity(displayDensity());
     createCanvas(windowWidth, windowHeight); 
-    getData();
+
+    getData(); //fill 'storiesTree' and 'storiesParentChild'
     getTableData(); //take data from tables for circle packet problem
 
-    //assing values to centerPosX, centerPosY, centerRadius of the entire drawing 
+    //assign values to radius, x and y positions of the entire drawing 
     centerPosX = windowWidth / 2; 
     centerPosY = windowHeight / 2; 
     centerRadius = windowHeight / 2; 
 
-    //set the properties 'x' 'y', 'radius' of the root of the tree storiesTree
+    //set properties 'x' 'y', 'radius' and 'level' to the tree root
     storiesTree._root.x = centerPosX; 
     storiesTree._root.y = centerPosY; 
     storiesTree._root.radius = centerRadius; 
     storiesTree._root.level = 1; 
 
-    storiesTree.traverseDFPO(updateNode); //set the properties 'x', 'y', 'radius' of the nodes of the tree storiesTree
+    storiesTree.traverseDFPO(updateNode); //set properties to all tree nodes except the root 
     
     //DELETE-------------
     print(storiesTree);//|<----
@@ -74,6 +87,7 @@ function draw() {
     moveY = 0; 
 
     background(colors[0]);
+
     drawData();
 }
 
@@ -173,6 +187,8 @@ function drawData() {
     }
 
     storiesTree.traverseDFPO(drawCircle); //draw a circle for each node
+
+    writeLabel(nameNodeHovered);
 }
 
 //------------------------------------------------
@@ -208,7 +224,7 @@ function checkHover(node) { //check if the mouse is hover the circle
 }
 
 //------------------------------------------------
-//find the updated value of the circle radius to use if the mouse click on the circle  
+//find the updated circle radius to use if it is clicked by the mouse 
 function findUpdateRadius(currentNode) {
     ratioRadius = centerRadius / currentNode.radius;
 }
@@ -218,27 +234,48 @@ function mouseClicked() {
     isMouseClicked = true; 
     storiesTree.traverseDF(updateHover);
 
-    //store actual radix parameters x, y, radius
-    var actualRadixRadius = storiesTree._root.radius;
-    var actualRadixX = storiesTree._root.x; 
-    var actualRadixY = storiesTree._root.y;
+    //store actual root parameters x, y, radius
+    var actualRootRadius = storiesTree._root.radius;
+    var actualRootX = storiesTree._root.x; 
+    var actualRootY = storiesTree._root.y;
     
-    //simulation of zoom (without drawing and translating). Needed to compute the translation ('moveXClicked' and 'moveYClicked')
+    //simulation of zoom (without drawing and translating). 
+    //Needed to compute the translation ('moveXClicked' and 'moveYClicked')
     storiesTree._root.radius *= ratioRadius; 
     storiesTree.traverseDFPO(updateNode);
     moveXClicked = moveX; 
     moveYClicked = moveY; 
 
     //restore real situation from simulation of zoom
-    storiesTree._root.radius = actualRadixRadius;
-    storiesTree._root.x = actualRadixX; 
-    storiesTree._root.y = actualRadixY; 
+    storiesTree._root.radius = actualRootRadius;
+    storiesTree._root.x = actualRootX; 
+    storiesTree._root.y = actualRootY; 
     storiesTree.traverseDFPO(updateNode);
 
-    //compute final radix values 
+    //compute final root values 
     finalRadius = storiesTree._root.radius * ratioRadius;
     finalPosX = storiesTree._root.x + moveXClicked;
-    finalPosY = storiesTree._root.y + moveYClicked; 
-   
+    finalPosY = storiesTree._root.y + moveYClicked;  
+}
+
+//------------------------------------------------
+//write near mouse position a label of the name property of the node hovered by the mouse 
+function writeLabel(nameNode) {
+    var d = dist(mouseX, mouseY, storiesTree._root.x, storiesTree._root.y); 
+    if(d < storiesTree._root.radius) {
+        noStroke();
+        fill(255, 255, 0);
+        rect(mouseX, mouseY, textWidth(nameNode) + 20, - 20);
+        strokeWeight(1);
+        fill(strokeColor);
+        textAlign('CENTER', 'CENTER');
+        text(nameNode, mouseX + 10, mouseY - 5); 
+    }
+}
+
+//------------------------------------------------
+//write name property of the node inside the node enough big and without children
+function writeName(currentNode) {
+    //TO DO 
 }
 
