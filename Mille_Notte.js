@@ -12,14 +12,31 @@ var pack17circles = [];
 var storiesTree; // Tree of stories 
 
 //colors
-var strokeColor = '#0b00b2'; //dark blue
+var strokeColor = '#541D02';
+
 var colors = [
                 '#ffffd4', //background
                 '#fed98e', //root node (level 1)
                 '#fe9929', //nodes level 2
                 '#d95f0e', //nodes level 3
                 '#993404'  //nodes level 4
-              ];
+              ]; //'#0b00b2'; //dark blue
+
+var colors2 = [
+                '#ffffd4', 
+                '#fee391',
+                '#fec44f',
+                '#fe9929',
+                '#d95f0e'
+            ]; //'#993404';
+
+var colors1 = [
+                '#feedde',
+                '#fdd0a2',
+                '#fdae6b',
+                '#fd8d3c',
+                '#e6550d',
+            ];//'#a63603';
 
 //radius, x and y positions of the entire drawing 
 var centerPosX, centerPosY; 
@@ -39,7 +56,10 @@ var ratioRadius = 1; //ratio of the radius to zoom the circles
 var deltaLerp = 1;
 var lerpValue = 0.05;
 
-var nameNodeHovered = ""; //contains the value name of the node hovered 
+var nodeHovered = ""; //contains the value name of the node hovered 
+
+//fonts
+var fontNames; 
 
 
 //------------------------------------------------
@@ -52,6 +72,9 @@ function preload() {
     tab5circles = loadTable('data/5circles.csv', 'csv', 'header');
     tab7circles = loadTable('data/7circles.csv', 'csv', 'header');
     tab17circles = loadTable('data/17circles.csv', 'csv', 'header');
+
+    //load fonts
+    fontNames = loadFont('data/GloriaHallelujah.ttf'); //https://fonts.google.com/specimen/Gloria+Hallelujah?selection.family=Gloria+Hallelujah
 }
 
 //------------------------------------------------
@@ -74,10 +97,6 @@ function setup() {
     storiesTree._root.level = 1; 
 
     storiesTree.traverseDFPO(updateNode); //set properties to all tree nodes except the root 
-    
-    //DELETE-------------
-    print(storiesTree);//|<----
-    //-------------------
 }
 
 //------------------------------------------------
@@ -188,7 +207,7 @@ function drawData() {
 
     storiesTree.traverseDFPO(drawCircle); //draw a circle for each node
 
-    writeLabel(nameNodeHovered);
+    writeLabel(nodeHovered);
 }
 
 //------------------------------------------------
@@ -260,22 +279,59 @@ function mouseClicked() {
 
 //------------------------------------------------
 //write near mouse position a label of the name property of the node hovered by the mouse 
-function writeLabel(nameNode) {
+function writeLabel(nodeHovered) {
     var d = dist(mouseX, mouseY, storiesTree._root.x, storiesTree._root.y); 
-    if(d < storiesTree._root.radius) {
+    if(d < storiesTree._root.radius && !nodeHovered.visibleText) { //if the mouse is hover the drawing... 
+
+        //rectangle settings
         noStroke();
-        fill(255, 255, 0);
-        rect(mouseX, mouseY, textWidth(nameNode) + 20, - 20);
-        strokeWeight(1);
         fill(strokeColor);
-        textAlign('CENTER', 'CENTER');
-        text(nameNode, mouseX + 10, mouseY - 5); 
+        rectMode(CENTER);
+        rect(mouseX, mouseY - 15, textWidth(nodeHovered.name) + 10, 20, 5);
+
+        //text settings 
+        textAlign(CENTER, CENTER);
+        strokeWeight(1);
+        fill('#fff');
+        
+        text(nodeHovered.name, mouseX, mouseY - 20); 
     }
 }
 
 //------------------------------------------------
-//write name property of the node inside the node enough big and without children
+//write name property of the node inside itself is it's enough big and without children
 function writeName(currentNode) {
-    //TO DO 
+    if(currentNode.children.length == 0 && currentNode.radius > 62) { //if the node has no children and its radius is big enough...
+
+        //text box dimensions
+        rectMode(CENTER);
+        var textBoxWidth = currentNode.radius * 2 - 20; 
+        var textBoxHeight = 70;
+
+        //text settings
+        textAlign(CENTER, CENTER);
+        textFont(fontNames);
+
+        //text size is bigger if the radius node is big
+        if(currentNode.radius > 140 && currentNode.radius <= 280) {
+            textSize(15);
+        } else if(currentNode.radius > 280) {
+            textSize(20);
+        }else {
+            textSize(11);
+        }
+
+        //stroke settings
+        fill('#fff'); //strokeColor
+        noStroke(); //needed to garantee the reset of the stroke previously set 
+        strokeWeight(1);
+
+        text(currentNode.name, currentNode.x, currentNode.y, textBoxWidth, textBoxHeight); 
+        
+        currentNode.visibleText = true; //set property node to know the name property is now visible in the drawing
+    } else {
+        currentNode.visibleText = false; 
+    }
+    
 }
 

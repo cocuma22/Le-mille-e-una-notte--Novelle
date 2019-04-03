@@ -63,8 +63,8 @@ function drawCircle(currentNode) {
         noStroke();
     }
     fill(colors[currentNode.level]);
-    circle(currentNode.x, currentNode.y, currentNode.radius);
-    //writeName (63 raggio max e senza figli) 
+    circle(currentNode.x, currentNode.y, currentNode.radius); 
+    writeName(currentNode);
 }
 
 //------------------------------------------------
@@ -78,7 +78,7 @@ function updateHover(currentNode) {
         if(!childSelected) { //if the mouse isn't hover its children...
             currentNode.hovered = true; //... the mouse is hover this current node 
             findUpdateRadius(currentNode); //compute updated circle radius
-            nameNodeHovered = currentNode.name; //save name value of the node hovered in a global variable
+            nodeHovered = currentNode; //save node hovered in a global variable
         } else {
             currentNode.hovered = false; 
         }

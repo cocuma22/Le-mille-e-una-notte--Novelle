@@ -10,6 +10,7 @@ function Node(name) {
     this.y = 0; //circle y position 
     this.level = 0; //level node in the tree 
     this.hovered = false; //flag to know if the mouse is hover the circle node  
+    this.visibleText = false; //flat to know if the name property value is visible in the drawing 
 }
 
 function Tree(name) {
