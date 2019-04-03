@@ -13,7 +13,7 @@ var storiesTree; // Tree of stories
 
 //colors
 var strokeColor = '#541D02';
-
+var textColor = '#fff';
 var colors = [
                 '#ffffd4', //background
                 '#fed98e', //root node (level 1)
@@ -21,22 +21,6 @@ var colors = [
                 '#d95f0e', //nodes level 3
                 '#993404'  //nodes level 4
               ]; //'#0b00b2'; //dark blue
-
-var colors2 = [
-                '#ffffd4', 
-                '#fee391',
-                '#fec44f',
-                '#fe9929',
-                '#d95f0e'
-            ]; //'#993404';
-
-var colors1 = [
-                '#feedde',
-                '#fdd0a2',
-                '#fdae6b',
-                '#fd8d3c',
-                '#e6550d',
-            ];//'#a63603';
 
 //radius, x and y positions of the entire drawing 
 var centerPosX, centerPosY; 
@@ -287,13 +271,13 @@ function writeLabel(nodeHovered) {
         noStroke();
         fill(strokeColor);
         rectMode(CENTER);
-        textSize(12); //needed here to compute correctly text lenght
-        rect(mouseX, mouseY - 15, textWidth(nodeHovered.name) + 10, 20, 5);
+        textSize(14); //needed here to compute correctly text lenght
+        rect(mouseX, mouseY - 15, textWidth(nodeHovered.name) + 10, 28, 10);
 
         //text settings 
         textAlign(CENTER, CENTER);
         strokeWeight(1);
-        fill('#fff');
+        fill(textColor);
         
         text(nodeHovered.name, mouseX, mouseY - 20); 
     }
@@ -302,28 +286,21 @@ function writeLabel(nodeHovered) {
 //------------------------------------------------
 //write name property of the node inside itself is it's enough big and without children
 function writeName(currentNode) {
-    if(currentNode.children.length == 0 && currentNode.radius > 62) { //if the node has no children and its radius is big enough...
-
-        //text box dimensions
-        rectMode(CENTER);
-        var textBoxWidth = currentNode.radius * 2 - 20; 
-        var textBoxHeight = 70;
+    if(currentNode.children.length == 0 && currentNode.radius > 45) { //if the node has no children and its radius is big enough...
 
         //text settings
         textAlign(CENTER, CENTER);
         textFont(fontNames);
+        var textDimension = currentNode.radius * 11 / 62; //text size is proportional to radius node 
+        textSize(textDimension);
 
-        //text size is bigger if the radius node is big
-        if(currentNode.radius > 140 && currentNode.radius <= 280) {
-            textSize(15);
-        } else if(currentNode.radius > 280) {
-            textSize(20);
-        }else {
-            textSize(11);
-        }
+        //text box dimensions
+        rectMode(CENTER);
+        var textBoxWidth = currentNode.radius * 2 - 20; 
+        var textBoxHeight = textDimension * 70 / 11; //height box is proportional to text size
 
         //stroke settings
-        fill('#fff'); //strokeColor
+        fill(textColor); 
         noStroke(); //needed to garantee the reset of the stroke previously set 
         strokeWeight(1);
 
