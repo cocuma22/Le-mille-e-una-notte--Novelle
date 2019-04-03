@@ -287,7 +287,7 @@ function writeLabel(nodeHovered) {
         noStroke();
         fill(strokeColor);
         rectMode(CENTER);
-        textSize(11); //needed here to compute correctly text lenght
+        textSize(12); //needed here to compute correctly text lenght
         rect(mouseX, mouseY - 15, textWidth(nodeHovered.name) + 10, 20, 5);
 
         //text settings 
