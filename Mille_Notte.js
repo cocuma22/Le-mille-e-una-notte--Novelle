@@ -48,7 +48,7 @@ var fontNames;
 
 //------------------------------------------------
 function preload() {
-    table = loadTable('data/mille_notte4.csv', 'csv', 'header'); //load csv data in variable 'table'
+    table = loadTable('data/mille_notte.csv', 'csv', 'header'); //load csv data in variable 'table'
 
     //load tables for circle packet problem
     tab2circles = loadTable('data/2circles.csv', 'csv', 'header'); 
