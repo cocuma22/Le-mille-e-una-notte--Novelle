@@ -64,15 +64,15 @@ function preload() {
 //------------------------------------------------
 function setup() {
     pixelDensity(displayDensity());
-    createCanvas(windowWidth, windowHeight); 
+    createCanvas(windowWidth - 20, windowHeight - 40); 
 
     getData(); //fill 'storiesTree' and 'storiesParentChild'
     getTableData(); //take data from tables for circle packet problem
 
     //assign values to radius, x and y positions of the entire drawing 
-    centerPosX = windowWidth / 2; 
-    centerPosY = windowHeight / 2; 
-    centerRadius = windowHeight / 2; 
+    centerPosX = width / 2; 
+    centerPosY = height / 2; 
+    centerRadius = height / 2; 
 
     //set properties 'x' 'y', 'radius' and 'level' to the tree root
     storiesTree._root.x = centerPosX; 
