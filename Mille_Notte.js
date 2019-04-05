@@ -64,7 +64,7 @@ function preload() {
 //------------------------------------------------
 function setup() {
     pixelDensity(displayDensity());
-    createCanvas(windowWidth - 20, windowHeight - 40); 
+    createCanvas(windowWidth, windowHeight); 
 
     getData(); //fill 'storiesTree' and 'storiesParentChild'
     getTableData(); //take data from tables for circle packet problem
