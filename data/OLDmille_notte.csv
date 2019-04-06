@@ -1,0 +1,88 @@
+NOVELLA,NARRATORE,NOVELLA_GENITORE,LEGAME_PERSONAGGIO
+Il mercante e il genio,Scheherazade,Le Mille e una Notte,Il vecchio che conduceva legata una cerva
+Storia del primo vecchio e della cerva,ll vecchio che conduceva legata una cerva,Il mercante e il genio,nessuno
+Il mercante e il genio,Scheherazade,Le Mille e una Notte,Il vecchio coi due cani
+Storia del secondo vecchio e de’ due cani,Il vecchio coi due cani,Il mercante e il genio,nessuno
+Il mercante e il genio,Scheherazade,Le Mille e una Notte,Il terzo vecchio
+Storia del terzo vecchio e della principessa Scirina,Il terzo vecchio,Il mercante e il genio,nessuno
+Storia d’un pescatore,Scheherazade,Le Mille e una Notte,pescatore
+Storia del re greco e del medico Douban,pescatore,Storia d’un pescatore,re greco
+Storia del marito e del pappagallo,re greco,Storia del re greco e del medico Douban,nessuno
+Storia d’un pescatore,Scheherazade,Le Mille e una Notte,giovane re delle indie nere
+Storia del giovane re delle indie nere,giovane re delle indie nere,Storia d’un pescatore,nessuno
+Storia del facchino di Bagdad,Scheherazade,Le Mille e una Notte,primo calender
+Storia del primo calender,primo calender,Storia del facchino di Bagdad,nessuno
+Storia del facchino di Bagdad,Scheherazade,Le Mille e una Notte,secondo calender
+Istoria del secondo calender,secondo calender,Storia del facchino di Bagdad,nessuno
+Storia del facchino di Bagdad,Scheherazade,Le Mille e una Notte,terzo calender
+Storia del terzo calender,terzo calender,Storia del facchino di Bagdad,nessuno
+Storia del facchino di Bagdad,Scheherazade,Le Mille e una Notte,califfo Haroun-al-Rascid
+Storia del facchino di Bagdad,Scheherazade,Le Mille e una Notte,gran visir Giafar
+Storia del facchino di Bagdad,Scheherazade,Le Mille e una Notte,capo degli enunci Mesrour
+Storia del facchino di Bagdad,Scheherazade,Le Mille e una Notte,Zobeida
+Storia di Zobeida,Zobeida,Storia del facchino di Bagdad,nessuno
+Storia di Amina,Amina,Storia del facchino di Bagdad,nessuno
+Storia di Sindbad il marinaio e de’ suoi viaggi,Scheherazade,Le Mille e una Notte,Sindbad il marinaio
+Primo viaggio,Sindbad il marinaio,Storia di Sindbad il marinaio e de’ suoi viaggi,nessuno
+Secondo viaggio,Sindbad il marinaio,Storia di Sindbad il marinaio e de’ suoi viaggi,nessuno
+Terzo viaggio,Sindbad il marinaio,Storia di Sindbad il marinaio e de’ suoi viaggi,nessuno
+Quarto viaggio,Sindbad il marinaio,Storia di Sindbad il marinaio e de’ suoi viaggi,nessuno
+Quinto viaggio,Sindbad il marinaio,Storia di Sindbad il marinaio e de’ suoi viaggi,nessuno
+Sesto viaggio,Sindbad il marinaio,Storia di Sindbad il marinaio e de’ suoi viaggi,califfo Haroun-al-Rascid
+Settimo viaggio,Sindbad il marinaio,Storia di Sindbad il marinaio e de’ suoi viaggi,califfo Haroun-al-Rascid
+Storia dei tre pomi,Scheherazade,Le Mille e una Notte,califfo Haroun-al-Rascid
+Storia dei tre pomi,Scheherazade,Le Mille e una Notte,gran visir Giafar
+Storia dei tre pomi,Scheherazade,Le Mille e una Notte,capo degli enunci Mesrour
+Storia dei tre pomi,Scheherazade,Le Mille e una Notte,giovane
+Storia della dama trucidata e del giovane suo marito,giovane,Storia dei tre pomi,nessuno
+Storia di Noureddin Alì e di Bedreddin Hassan,gran visir Giafar,Storia dei tre pomi,nessuno
+Storia del piccolo gobbo,Scheherazade,Le Mille e una Notte,mercate cristiano
+Storia del mercante cristiano,mercante cristiano,Storia del piccolo gobbo,giovane mercante
+Storia del mancino,giovane mercante,Storia del mercante cristiano,nessuno
+Storia del piccolo gobbo,Scheherazade,Le Mille e una Notte,medico
+Storia del provveditore,medico,Storia del piccolo gobbo,convitato
+Storia del convitato,convitato,Storia del provveditore,califfo Haroun-al-Rascid
+Storia del convitato,convitato,Storia del provveditore,Zobeida
+Storia del piccolo gobbo,Scheherazade,Le Mille e una Notte,sarto
+Storia del sarto,sarto,Storia del piccolo gobbo,giovane zoppo
+Storia del giovine zoppo,giovane zoppo,Storia del sarto,nessuno
+Storia del sarto,sarto,Storia del piccolo gobbo,barbiere
+Storia del primo fratello gobbo,barbiere,Storia del sarto,nessuno
+Storia del secondo fratello sdentato,barbiere,Storia del sarto,nessuno
+Storia del terzo fratello cieco,barbiere,Storia del sarto,nessuno
+Storia del quarto fratello guercio,barbiere,Storia del sarto,nessuno
+Storia del quinto fratello dalle orecchie tagliate,barbiere,Storia del sarto,nessuno
+Storia del fratello dalle labbra spezzate,barbiere,Storia del sarto,nessuno
+Storia del principe Camaralzaman,Scheherazade,Le Mille e una Notte,Marzavan
+Storia della fata Maimoune e del Genio Danhasch,Scheherazade,Storia del principe Camaralzaman,nessuno
+Storia di Marzavan,Scheherazade,Storia del principe Camaralzaman,nessuno
+Storia di Noureddin e della bella persiana,Scheherazade,Le Mille e una Notte,califfo Haroun-al-Rascid
+Storia di Noureddin e della bella persiana,Scheherazade,Le Mille e una Notte,gran visir Giafar
+Storia di Noureddin e della bella persiana,Scheherazade,Le Mille e una Notte,capo degli enunci Mesrour
+"Storia di Beder principe di Persia e di Giauhare, principessa di Samandal",Scheherazade,Le Mille e una Notte,Gulnara del Mare
+Storia della principessa Gulnara,Gulnara del Mare,"Storia di Beder principe di Persia e di Giauhare, principessa di Samandal",nessuno
+Storia di Ganem detto lo Schiavo d’amore,Scheherazade,Le Mille e una Notte,Forza dei Cuori
+Storia di Ganem detto lo Schiavo d’amore,Scheherazade,Le Mille e una Notte,califfo Haroun-al-Rascid
+Storia di Ganem detto lo Schiavo d’amore,Scheherazade,Le Mille e una Notte,Tormenta
+Storia di Tormenta,Tormenta,Storia di Ganem detto lo Schiavo d’amore,califfo Haroun-al-Rascid
+Storia di Tormenta,Tormenta,Storia di Ganem detto lo Schiavo d’amore,Zobeida
+Storia di Tormenta,Tormenta,Storia di Ganem detto lo Schiavo d’amore,capo degli enunci Mesrour
+Storia di Tormenta,Tormenta,Storia di Ganem detto lo Schiavo d’amore,gran visir Giafar
+Storia del principe Zeyn Alasnam e del re dei genii,Scheherazade,Le Mille e una Notte,nessuno
+Storia di Codadad e de’ suoi fratelli,Scheherazade,Le Mille e una Notte,principessa di Deryabar
+Storia della principessa di Deryabar,principessa di Deryabar,Storia di Codadad e de’ suoi fratelli,nessuno
+Storia del dormiglione risvegliato,Scheherazade,Le Mille e una Notte,califfo Haroun-al-Rascid
+Storia del dormiglione risvegliato,Scheherazade,Le Mille e una Notte,gran visir Giafar
+Storia del dormiglione risvegliato,Scheherazade,Le Mille e una Notte,capo degli enunci Mesrour
+Storia del dormiglione risvegliato,Scheherazade,Le Mille e una Notte,Forza dei Cuori
+Storia di Aladino e della lucerna meravigliosa,Scheherazade,Le Mille e una Notte,nessuno
+Storia del califfo Haroun-al-Rachid,Scheherazade,Le Mille e una Notte,califfo Haroun-al-Rascid
+Storia del califfo Haroun-al-Rachid,Scheherazade,Le Mille e una Notte,gran visir Giafar
+Storia del califfo Haroun-al-Rachid,Scheherazade,Le Mille e una Notte,Baba-Abdalla
+Storia del cieco Baba-Abdalla,Baba-Abdalla,Storia del califfo Haroun-al-Rachid,nessuno
+Storia del califfo Haroun-al-Rachid,Scheherazade,Le Mille e una Notte,Sidi-Nouman
+Storia di Sidi-Nouman,Sidi-Nouman,Storia del califfo Haroun-al-Rachid,nessuno
+Storia del califfo Haroun-al-Rachid,Scheherazade,Le Mille e una Notte,Cogia Hassan Alhabbal
+Storia di Cogia Hassan Alhabbal,Cogia Hassan Alhabbal,Storia del califfo Haroun-al-Rachid,nessuno
+Storia del cavallo incantato,Scheherazade,Le Mille e una Notte,nessuno
+Storia del principe Ahmed e della fata Pari-Banou,Scheherazade,Le Mille e una Notte,nessuno
