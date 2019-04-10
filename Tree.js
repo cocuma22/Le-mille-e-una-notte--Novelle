@@ -46,18 +46,6 @@ Tree.prototype.traverseDFPO = function(callback) { //'prototype' needs to add a 
     })(this._root);  
 };
 
-//DFS in PRE-ORDER to print text (save position)
-/*  Tree.prototype.traverseText = function(callback) { //'prototype' needs to add a new method to object constructor 
-      // this is a recurse and immediately-invoking function 
-      (function recurse(currentNode, posX = MARGIN_HOR, posY = MARGIN_VER) {
-          callback(currentNode, posX, posY);
-          for (var i = 0, length = currentNode.children.length; i < length; i++) { 
-              recurse(currentNode.children[i], posX += 20, posY += 20);
-              //posY += 20; 
-          }
-      })(this._root);   
-  };*/
-
 //Allow to search for a particular name in the tree
 Tree.prototype.contains = function(callback, traversal) {
     traversal.call(this, callback);
